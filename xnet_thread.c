@@ -2,7 +2,7 @@
  * xnet_thread.c
  *
  *  Created on: 2015年11月22日
- *      Author: houbin0902
+ *      Author: houbin
  */
 
 

@@ -14,13 +14,12 @@ CFLAGS += -Wall\
 		 -Werror\
 		 -Wconversion\
 		 -Wno-unused-parameter\
+		 -Wold-style-cast\
+		 -Woverloaded-virtual\
 		 -Wpointer-arith\
 		 -Wshadow\
 		 -Wwrite-strings\
 		 -march=native
-
-CPPFLAGS = -Wold-style-cast\
-		   -Woverloaded-virtual
 
 debug = y
 
@@ -31,24 +30,21 @@ CFLAGS += -O2 -s
 endif
 
 
-#CFLAGS = -g
 
 LDFLAGS = -rdynamic  ../commonlib.a  -lpthread
 
 INCDIRS = ../
 
-#CFLAGS = -g
 CFLAGS += -I$(INCDIRS)
 
-#LDFLAGS = ./../commonlib.a 
 
 
-DES = xnet_thread_unittest
+DES = xnet_thread
 
 all:$(DES)
 
 
-xnet_thread_unittest:xnet_thread_unittest.c
+xnet_thread:xnet_thread
 	$(CC) $(CFLAGS) $^ -o $@  $(LDFLAGS)
 
 

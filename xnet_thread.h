@@ -2,7 +2,7 @@
  * xnet_thread.h
  *
  *  Created on: 2015年11月22日
- *      Author: houbin0902
+ *      Author: houbin
  */
 
 #ifndef CLIB_XNET_THREAD_H_
