@@ -1,19 +1,48 @@
 /*
  * xnet_log.h
  *
- *  Created on: 2015年5月22日
- *      Author: houbin
+ *  Created on: May 31, 2016
+ *      Author: a
  */
 
-#ifndef CLIB_XNET_LOG_H_
-#define CLIB_XNET_LOG_H_
+#ifndef XNET_LOG_H_
+#define XNET_LOG_H_
 
-#include <syslog.h>
-#include <stdarg.h>
+#include <stdio.h>
+
+//#ifdef __cplusplus
+
+#define LOG_BUF_SIZE 1024
+
+typedef struct LogTag_
+{
+	FILE * pfile;
+	int level;
+	char* buf;
+}LogTag, *pLogTag;
 
 
-void xnet_set_loglevel( int log_level );
-void xnet_log( int log_level, const char* file_name, int line_num, const char* format, ... );
 
 
-#endif /* CLIB_XNET_LOG_H_ */
+void xnet_log_init(LogTag** plogtag, char const* filename, int level);
+int xnet_log(LogTag* plogtag, char const* fmt, ...);
+void xnet_log_destroy(LogTag* plogtag);
+
+
+
+
+
+//typedef struct Logger_
+//{
+//	logTag* plogTag;
+//	void* (*pxnet_log_init)(char const* , int);
+//
+//}Logger;
+
+
+
+
+
+
+
+#endif /* XNET_LOG_H_ */
