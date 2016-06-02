@@ -41,10 +41,14 @@ CFLAGS += -I$(INCDIRS)
 
 
 #DES = xnet_thread xnet_log_unittest
-DES = xnet_log_unittest
+DES = xnet_log_unittest\
+	  xnet_atomic_unittest
+
 
 all:$(DES)
 
+xnet_atomic_unittest:xnet_atomic_unittest.c
+	$(CC) $(CFLAGS) $^ -o $@  $(LDFLAGS)
 
 xnet_log_unittest:xnet_log_unittest.c
 	$(CC) $(CFLAGS) $^ -o $@  $(LDFLAGS)
